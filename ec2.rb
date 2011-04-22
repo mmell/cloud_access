@@ -14,6 +14,11 @@ module CloudAccess
       t.strip.split("\n").map { |e| e.strip }
     end
     
+    # thanks http://www.cloudiquity.com/2009/02/finding-information-about-an-amazon-ec2-instance/
+    def Ec2.instance_id
+      %x[wget http://169.254.169.254/1.0/meta-data/instance-id]
+    end
+    
   end
   
 end

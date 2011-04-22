@@ -14,7 +14,7 @@ describe CloudAccess::Ec2::Attach::Volume do
       attachment.instance_id.should == 'i-6058a509'
       attachment.mount_point.should == '/dev/sdh'
       attachment.state.should == 'attaching'
-      attachment.attachment_timestamp.should == Time.parse('2008-02-14T00:15:00+0000')
+      attachment.timestamp.should == Time.parse('2008-02-14T00:15:00+0000')
     end
 
   end

@@ -22,12 +22,12 @@ VOLUME	vol-eff33c87	5		us-east-1a	in-use	2010-12-08T21:44:06+0000	ATTACHMENT	vol
   describe "#allow_delete?" do
     it "allows delete" do
       vols = new_volumes(describe_volumes)
-      vols.allow_delete?(vols.volumes[1]).should == true
+      vols.allow_delete?(vols[1]).should == true
     end
 
     it "does not allow delete" do
       vols = new_volumes(describe_volumes)
-      vols.allow_delete?(vols.volumes[0]).should == false
+      vols.allow_delete?(vols[0]).should == false
     end
 
   end

@@ -6,22 +6,21 @@ module CloudAccess
   module Ec2
     module Describe
     
-      class Volumes
+      class Volumes < Array
         DEBUG = false
         
-        attr_reader :volumes
-        
         def initialize(aws_data)
-          @volumes = CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
-            Volume.new(e) 
-          }.delete_if { |e| 
-              e.nil? 
-          }
-          raise RuntimeError, "No Volumes found." if @volumes.empty?
+          super (
+            CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
+              Volume.new(e) 
+            }.delete_if { |e| 
+                e.nil? 
+            }
+          )
         end
         
         def delete_volumes
-          @volumes.each { |vol| 
+          each { |vol| 
             if allow_delete?(vol)
               CloudAccess::Ec2::Snapshots.delete_all_of_volume(vol.id)
               puts "ec2-delete-volume #{vol.id}"

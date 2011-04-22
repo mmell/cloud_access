@@ -1,5 +1,7 @@
 #!/usr/bin/env ruby
 
+require File.expand_path(File.dirname(__FILE__) + '/describe/instance')
+require File.expand_path(File.dirname(__FILE__) + '/describe/instances')
 require File.expand_path(File.dirname(__FILE__) + '/describe/snapshot')
 require File.expand_path(File.dirname(__FILE__) + '/describe/snapshots')
 require File.expand_path(File.dirname(__FILE__) + '/describe/volume')
