@@ -1,0 +1,20 @@
+CloudAccess Tools for EC2
+
+To use the EC2 Command Line Tools: 
+  Set up your environment:
+  # Thanks http://www.johnnypez.com/design-development/unable-to-find-a-java_home-at-on-mac-osx/
+  export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home
+  
+  # http://docs.amazonwebservices.com/AWSEC2/latest/UserGuide/index.html?SettingUp_CommandLine.html
+  export EC2_HOME=~/.ec2/ec2-api-tools-1.4.2.4
+  export PATH=$PATH:$EC2_HOME/bin
+  
+  # AWS PEMs:
+  export EC2_PRIVATE_KEY=~/.ec2/aws-my-pk.pem
+  export EC2_CERT=~/.ec2/aws-my-cert.pem
+  
+  # ec2-describe-regions
+  export EC2_URL=https://ec2.us-west-1.amazonaws.com
+  
+To use the CloudAccess Tools for EC2
+  See the Examples  
