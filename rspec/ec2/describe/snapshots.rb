@@ -11,7 +11,7 @@ SNAPSHOT	snap-CURRENT	vol-41296a2a	completed	2010-10-15T06:01:23+0000	100%	30869
 SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	308696310818	10	Created by CreateImage(i-9fde74db) for ami-5a05551f from vol-cd2968a6}
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s.current_snapshot('vol-41296a2a').id.should == 'snap-CURRENT'
     end
   end
@@ -26,7 +26,7 @@ SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	3086
 }
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s.is_current_snapshot?(s[0]).should == false
       s.allow_delete?(s[0]).should == true
     end
@@ -40,7 +40,7 @@ SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	3086
 }
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s.allow_delete?(s[0]).should == false
     end
 
@@ -49,7 +49,7 @@ SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	3086
 SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	308696310818	10	Created by CreateImage(i-9fde74db) for ami-5a05551f from vol-cd2968a6}
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s.allow_delete?(s[0]).should == false
     end
   end
@@ -60,7 +60,7 @@ SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	3086
 SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	308696310818	10	Created by CreateImage(i-9fde74db) for ami-5a05551f from vol-cd2968a6}
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s.is_current_snapshot?(s[0]).should == true
     end
 
@@ -73,7 +73,7 @@ SNAPSHOT	snap-f1e84e9a	vol-cd2968a6	completed	2010-10-13T23:18:52+0000	100%	3086
 }
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s[0].id.should == 'snap-3'
     end
 
@@ -87,7 +87,7 @@ SNAPSHOT	snap-CURRENT	vol-41296a2a	completed	2010-10-15T06:01:23+0000	100%	30869
 }
 
       s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
-      CloudAccess::Ec2::Describe::Snapshots.stub(:create_by_volume_id) { s.dup }
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
       s.is_current_snapshot?(s[0]).should == true
     end
 

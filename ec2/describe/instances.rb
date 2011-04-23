@@ -6,7 +6,7 @@ module CloudAccess
   
       class Instances < Array
 
-        # call ec2-attach-volume and create an object that reflects the results
+        # create an object that reflects the results of the system call
         #
         def initialize(aws_data)
           super (
@@ -16,11 +16,14 @@ module CloudAccess
           )
         end
         
-        # make the ec2-describe-instances system call
-        # returns a string corresponding to Fields
+        # make the system call and return a new object
         #
         def self.ec2_describe_instances(opts = '')
           new( %x[ec2-describe-instances #{opts}] )
+        end
+
+        def self.ec2_describe_instance(instance_id)
+          ec2_describe_instances( "--filter instance_id=#{instance_id}" ).first
         end
 
       end

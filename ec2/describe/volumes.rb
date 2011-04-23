@@ -39,6 +39,16 @@ module CloudAccess
           !(vol.in_use? or vol.is_tagged?)
         end
         
+        # make the system call and return a new object
+        #
+        def self.ec2_describe_volumes(opts = '')
+          new( %x[ec2-describe-volumes #{opts}] )
+        end
+
+        def self.ec2_describe_volume(volume_id)
+          ec2_describe_volumes( volume_id ).first
+        end
+
         def self.delete_all_available # ENHANCEMENT: we could accept a list of non-attached volumes to preserve here
           puts "Deleting all volumes (and all of its snapshots) that are not attached to running instances (status: available)."
           puts "Please confirm that *all systems are up and running* ... (y/n)"

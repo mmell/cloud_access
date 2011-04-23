@@ -12,7 +12,7 @@ describe CloudAccess::Ec2::Attach::Volume do
 #      attachment.type.should == 'ATTACHMENT'
       attachment.id.should == 'vol-4d826724'
       attachment.instance_id.should == 'i-6058a509'
-      attachment.mount_point.should == '/dev/sdh'
+      attachment.device.should == '/dev/sdh'
       attachment.state.should == 'attaching'
       attachment.timestamp.should == Time.parse('2008-02-14T00:15:00+0000')
     end

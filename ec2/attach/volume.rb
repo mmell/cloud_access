@@ -11,7 +11,7 @@ module CloudAccess
         
         # fields are accessible as obj.field_name, e.g. obj.id => 'vol-4d826724'
         #
-        Fields = [ :type, :id, :instance_id, :mount_point, :state, :timestamp ]
+        Fields = [ :type, :id, :instance_id, :device, :state, :timestamp ]
         
         # call ec2-attach-volume and create an object that reflects the results
         #

@@ -23,8 +23,8 @@ module CloudAccess
         # make the ec2-attach-volume system call
         # returns a string corresponding to Fields
         #
-        def self.ec2_create_volume(snapshot_id, region)
-          new( %x[ec2-create-volume --snapshot #{snapshot_id} --availability-zone #{region}] )
+        def self.ec2_create_volume(snapshot_id, availability_zone)
+          new( %x[ec2-create-volume --snapshot #{snapshot_id} --availability-zone #{availability_zone}] )
         end
 
         # parse the output of an ec2-attach-volume system call into a Hash
