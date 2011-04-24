@@ -1,6 +1,9 @@
 CloudAccess Tools for EC2
 
 To use the EC2 Command Line Tools: 
+  Download the Command Line Tools from http://aws.amazon.com/developertools/351
+  (For this example) Unpack the contents into ~/.ec2
+  
   Set up your environment:
   # Thanks http://www.johnnypez.com/design-development/unable-to-find-a-java_home-at-on-mac-osx/
   export JAVA_HOME=/System/Library/Java/JavaVirtualMachines/1.6.0.jdk/Contents/Home

@@ -9,9 +9,11 @@ module CloudAccess
         # create an object that reflects the results of the system call
         #
         def initialize(aws_data)
-          super (
+          super(
             CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
               Instance.new(e) 
+            }.delete_if { |e| 
+              !e.is_instance? 
             }
           )
         end
@@ -23,7 +25,7 @@ module CloudAccess
         end
 
         def self.ec2_describe_instance(instance_id)
-          ec2_describe_instances( "--filter instance_id=#{instance_id}" ).first
+          ec2_describe_instances( instance_id ).first
         end
 
       end

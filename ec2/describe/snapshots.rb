@@ -15,7 +15,7 @@ module CloudAccess
           CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
             Snapshot.new(e) 
           }.delete_if { |e| 
-            e.nil? or !e.completed?
+            !e.is_snapshot? or !e.completed?
           }
         )
         @opts = opts

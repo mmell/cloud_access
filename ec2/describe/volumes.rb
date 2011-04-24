@@ -10,11 +10,11 @@ module CloudAccess
         DEBUG = false
         
         def initialize(aws_data)
-          super (
+          super(
             CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
               Volume.new(e) 
             }.delete_if { |e| 
-                e.nil? 
+              !e.is_volume? 
             }
           )
         end

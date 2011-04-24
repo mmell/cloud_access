@@ -10,12 +10,16 @@ module CloudAccess
         extend CloudAccess::DynamicAttributes 
 
         Fields = [ :type, :id, :undef2, :snap_id, :region, :state, :date, :undef7, :undef8, :undef9, 
-          :undef10, :undef11, :undef12, :tag, :tag_value, :undef15, :name, :name_value
+          :undef10, :undef11, :undef12, :tag, :tag_value, :undef15, :name, :name_value, :source
         ]
                 
         def initialize(aws_data)
           @data = self.class.parse(aws_data)
-          raise RuntimeError, aws_data unless @data[:type] == 'VOLUME' # FIXME: maybe it's an Attach::Volume row?
+#          raise RuntimeError, aws_data unless @data[:type] == 'VOLUME' # FIXME: maybe it's an Attach::Volume row?
+        end
+          
+        def is_volume?
+          (@data[:type] == 'VOLUME')
         end
           
         def available?
@@ -25,13 +29,9 @@ module CloudAccess
         def in_use?
           (state == 'in-use')
         end
-        
+
         def is_tagged?
           (tag == 'TAG' and name == 'Name')
-        end
-        
-        def to_s
-          id
         end
         
         def snapshots
@@ -42,7 +42,8 @@ module CloudAccess
         #
         def self.parse(s)
           data = Hash[ Fields.zip(s.split(SEP)) ]
-          data[:date] = Time.parse(data[:date])
+          data[:source] = s
+          data[:date] = Time.parse(data[:date]) if data[:date]
           data
         end
 

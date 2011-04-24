@@ -9,21 +9,21 @@ module CloudAccess
       class Snapshot
         extend CloudAccess::DynamicAttributes 
 
-        Fields = [ :type, :id, :volume_id, :status, :date, :percent, :undef7, :undef8, :description ]
+        Fields = [ :type, :id, :volume_id, :status, :date, :percent, :undef7, :undef8, :description, :source ]
        
         def initialize(aws_data)
           @data = self.class.parse(aws_data)
-          return nil unless @data[:type] == 'SNAPSHOT'
+#          return nil unless @data[:type] == 'SNAPSHOT'
         end
                 
+        def is_snapshot?
+          (@data[:type] == 'SNAPSHOT')
+        end
+          
         def completed?
           (status == 'completed' and percent == '100%')
         end
-        
-        def to_s
-          id
-        end
-        
+               
         def ==(other)
           id == other.id
         end
@@ -32,6 +32,7 @@ module CloudAccess
         #
         def self.parse(s)
           data = Hash[ Fields.zip(s.split(SEP)) ]
+          data[:source] = s
           data[:date] = Time.parse(data[:date])
           data
         end
