@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../../ec2')
+require File.expand_path(File.dirname(__FILE__) + '/../../../lib/ec2')
 
 describe CloudAccess::Ec2::Describe::Volume do
   def new_volume(aws_data)
