@@ -5,7 +5,6 @@ require File.expand_path(File.dirname(__FILE__) + '/cloud_access/ec2')
 class Startup
   
   VolumeDefinition = Struct.new(:volume_id, :device, :mount_point, :fs_type)
-  DEBUG = true
   
   def initialize(environment, volumes)
     @environment = environment
@@ -21,6 +20,10 @@ class Startup
       attach_volume(volume_id, volume_definition.device)
       mount_volume(volume_definition)
     }
+
+    %x[sudo ln -s  /etc/nginx/sites-available/rails_#{@environment} /etc/nginx/sites-enabled/003-rails ]
+
+    %x[/home/ubuntu/startup/init.sh]
   end
   
   def logger
@@ -29,7 +32,7 @@ class Startup
   
   def mount_volume(volume_definition)
     fs = (volume_definition.fs_type.nil? ? "" : "-t #{volume_definition.fs_type}")
-    logger.debug "mounting: #{fs} #{volume_definition.device} #{volume_definition.mount_point}"
+    logger.info "mounting: #{fs} #{volume_definition.device} #{volume_definition.mount_point}"
     logger.debug %x[sudo mount #{fs} #{volume_definition.device} #{volume_definition.mount_point}]
   end
   
@@ -38,7 +41,7 @@ class Startup
 
     while (volume = CloudAccess::Ec2::Describe::Volumes.ec2_describe_volume(volume_id))
       break if volume.in_use?
-      logger.debug "waiting for  volume #{volume_id} to become attached (#{volume.state} #{volume.source})..."
+      logger.info "waiting for  volume #{volume_id} to become attached (#{volume.state})..."
       sleep 3
     end
     attachment
@@ -54,7 +57,7 @@ class Startup
     create_volume = CloudAccess::Ec2::Create::Volume.ec2_create_volume(snapshot_id, @instance.availability_zone)
     while (volume = CloudAccess::Ec2::Describe::Volumes.ec2_describe_volume(create_volume.id))
       break if volume.available?
-      logger.debug "waiting for new volume #{create_volume.id} to become available..."
+      logger.info "waiting for new volume #{create_volume.id} to become available..."
       sleep 3
     end
 
@@ -64,7 +67,7 @@ end
 
 class Logger
   # FIXME: use the standard methods
-  def initialize(@environment)
+  def initialize(environment)
     @environment = environment
   end
   
