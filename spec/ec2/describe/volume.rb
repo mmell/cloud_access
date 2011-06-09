@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../../../lib/cloud_access/ec2')
+require 'spec_helper'
 
 describe CloudAccess::Ec2::Describe::Volume do
   def new_volume(aws_data)
@@ -12,7 +12,7 @@ describe CloudAccess::Ec2::Describe::Volume do
       )
   
       vol.id.should == 'vol-eff33c87'
-      vol.snap_id.should == ''
+      vol.snapshot_id.should == ''
       vol.region.should == 'us-east-1a'
       vol.state.should == 'in-use'
       vol.date.should == Time.parse('2010-12-08T21:44:06+0000')

@@ -1,10 +1,8 @@
-#!/usr/bin/env ruby
-
-require File.expand_path(File.dirname(__FILE__) + '/dynamic_attributes')
-require File.expand_path(File.dirname(__FILE__) + '/ec2/associate')
-require File.expand_path(File.dirname(__FILE__) + '/ec2/attach')
-require File.expand_path(File.dirname(__FILE__) + '/ec2/create')
-require File.expand_path(File.dirname(__FILE__) + '/ec2/describe')
+require 'cloud_access/dynamic_attributes.rb'
+require 'cloud_access/ec2/associate'
+require 'cloud_access/ec2/attach'
+require 'cloud_access/ec2/create'
+require 'cloud_access/ec2/describe'
 
 module CloudAccess
   module Ec2

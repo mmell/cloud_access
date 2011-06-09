@@ -1,6 +1,4 @@
-#!/usr/bin/env ruby
-
-require File.expand_path(File.dirname(__FILE__) + '/../describe')
+require 'cloud_access/ec2/describe'
 
 module CloudAccess
   module Ec2
@@ -9,7 +7,7 @@ module CloudAccess
       class Volume
         extend CloudAccess::DynamicAttributes 
 
-        Fields = [ :type, :id, :undef2, :snap_id, :region, :state, :date, :undef7, :undef8, :undef9, 
+        Fields = [ :type, :id, :undef2, :snapshot_id, :region, :state, :date, :undef7, :undef8, :undef9, 
           :undef10, :undef11, :undef12, :tag, :tag_value, :undef15, :name, :name_value, :source
         ]
                 

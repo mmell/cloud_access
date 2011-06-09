@@ -1,4 +1,2 @@
-#!/usr/bin/env ruby
-
-require File.expand_path(File.dirname(__FILE__) + '/create/snapshot')
-require File.expand_path(File.dirname(__FILE__) + '/create/volume')
+require 'cloud_access/ec2/create/snapshot'
+require 'cloud_access/ec2/create/volume'

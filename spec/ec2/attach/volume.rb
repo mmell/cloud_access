@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/../../../lib/cloud_access/ec2')
+require 'spec_helper'
 
 describe CloudAccess::Ec2::Attach::Volume do
   

@@ -1,2 +1,4 @@
 .DS_Store
 cloud_access.bbprojectd
+pkg
+test.rb

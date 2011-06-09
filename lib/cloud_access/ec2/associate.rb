@@ -1,3 +1,1 @@
-#!/usr/bin/env ruby
-
-require File.expand_path(File.dirname(__FILE__) + '/associate/address')
+require 'cloud_access/ec2/associate/address'

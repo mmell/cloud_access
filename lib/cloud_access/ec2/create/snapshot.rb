@@ -1,1 +1,1 @@
-#!/usr/bin/env ruby
+# this page is blank for now

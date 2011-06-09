@@ -1,15 +1,6 @@
-#!/usr/bin/env ruby
-
-require File.expand_path(File.dirname(__FILE__) + '/describe/instance')
-require File.expand_path(File.dirname(__FILE__) + '/describe/instances')
-require File.expand_path(File.dirname(__FILE__) + '/describe/snapshot')
-require File.expand_path(File.dirname(__FILE__) + '/describe/snapshots')
-require File.expand_path(File.dirname(__FILE__) + '/describe/volume')
-require File.expand_path(File.dirname(__FILE__) + '/describe/volumes')
-
-#module CloudAccess
- # module Ec2
-  #  module Describe
-   # end
-#  end
-#end
+require 'cloud_access/ec2/describe/instance'
+require 'cloud_access/ec2/describe/instances'
+require 'cloud_access/ec2/describe/snapshot'
+require 'cloud_access/ec2/describe/snapshots'
+require 'cloud_access/ec2/describe/volume'
+require 'cloud_access/ec2/describe/volumes'
