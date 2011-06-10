@@ -6,7 +6,7 @@ describe CloudAccess::Ec2::Describe::Snapshot do
   end
   
   describe "basic accessors" do
-    it "knows the values" do
+    it "parses the field values" do
       snap = new_snapshot(
         "SNAPSHOT	snap-CURRENT	vol-41296a2a	completed	2010-10-15T06:01:23+0000	100%	308696310818	10	www-dev-10-14"
       )

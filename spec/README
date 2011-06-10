@@ -2,5 +2,5 @@ The test framework is Rspec2.
 See http://relishapp.com/rspec
 
 Run all tests
-# rspec ec2.rb 
-# rspec ec2/*/*.rb 
+# rspec spec/*.rb 
+# rspec spec/*/*/*.rb 

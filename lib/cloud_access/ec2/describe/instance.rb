@@ -7,7 +7,7 @@ module CloudAccess
       class Instance
         extend CloudAccess::DynamicAttributes 
         
-        # fields are accessible as obj.field_name, e.g. obj.id => 'vol-4d826724'
+        # field values are accessible as self.<field_name>, e.g. self.id => 'vol-4d826724'
         #
         Fields = [ 
           :type, :instance_id, :ami_id, 

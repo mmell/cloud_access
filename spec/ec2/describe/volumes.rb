@@ -36,9 +36,9 @@ VOLUME	vol-eff33c87	5		us-east-1a	in-use	2010-12-08T21:44:06+0000	ATTACHMENT	vol
     it "creates a Volume object" do
       row = 'VOLUME	vol-9d0bfef5	2	snap-ebdca481	us-east-1c	available	2010-11-19T03:32:30+0000'
       CloudAccess::Ec2::Describe::Volumes.stub(:ec2_describe_volumes) { new_volumes(row) }
-      vol = CloudAccess::Ec2::Describe::Volumes.ec2_describe_volume('vol-9d0bfef5')
-      vol.is_a?(CloudAccess::Ec2::Describe::Volume).should == true
-      vol.id.should == 'vol-9d0bfef5'
+      o = CloudAccess::Ec2::Describe::Volumes.ec2_describe_volume('vol-9d0bfef5')
+      o.is_a?(CloudAccess::Ec2::Describe::Volume).should == true
+      o.id.should == 'vol-9d0bfef5'
     end
 
   end

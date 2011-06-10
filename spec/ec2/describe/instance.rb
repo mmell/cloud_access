@@ -7,13 +7,13 @@ describe CloudAccess::Ec2::Describe::Instance do
   describe "initialize" do
   
     it "creates an object" do
-      attachment = CloudAccess::Ec2::Describe::Instance.new(aws_data)
+      o = CloudAccess::Ec2::Describe::Instance.new(aws_data)
 
-      attachment.instance_id.should == 'i-48603227'
-      attachment.ami_id.should == 'ami-da679bb3'
-      attachment.public_dns.should == 'ec2-50-17-246-0.compute-1.amazonaws.com'
-      attachment.private_dns.should == 'ip-10-83-42-165.ec2.internal'
-      attachment.instance_state.should == 'running'
+      o.instance_id.should == 'i-48603227'
+      o.ami_id.should == 'ami-da679bb3'
+      o.public_dns.should == 'ec2-50-17-246-0.compute-1.amazonaws.com'
+      o.private_dns.should == 'ip-10-83-42-165.ec2.internal'
+      o.instance_state.should == 'running'
           
     end
 

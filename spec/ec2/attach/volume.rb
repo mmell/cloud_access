@@ -7,14 +7,14 @@ describe CloudAccess::Ec2::Attach::Volume do
   describe "initialize" do
   
     it "creates an object" do
-      attachment = CloudAccess::Ec2::Attach::Volume.new(aws_data)
+      o = CloudAccess::Ec2::Attach::Volume.new(aws_data)
 
-#      attachment.type.should == 'ATTACHMENT'
-      attachment.id.should == 'vol-4d826724'
-      attachment.instance_id.should == 'i-6058a509'
-      attachment.device.should == '/dev/sdh'
-      attachment.state.should == 'attaching'
-      attachment.timestamp.should == Time.parse('2008-02-14T00:15:00+0000')
+#      o.type.should == 'ATTACHMENT'
+      o.id.should == 'vol-4d826724'
+      o.instance_id.should == 'i-6058a509'
+      o.device.should == '/dev/sdh'
+      o.state.should == 'attaching'
+      o.timestamp.should == Time.parse('2008-02-14T00:15:00+0000')
     end
 
   end

@@ -7,7 +7,7 @@ module CloudAccess
       class Address
         extend CloudAccess::DynamicAttributes 
         
-        # fields are accessible as obj.field_name, e.g. obj.id => 'vol-4d826724'
+        # field values are accessible as self.<field_name>, e.g. self.id => 'vol-4d826724'
         #
         Fields = [ :type, :elastic_ip, :instance_id, :association_id ]
         

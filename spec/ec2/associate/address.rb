@@ -7,12 +7,12 @@ describe CloudAccess::Ec2::Associate::Address do
   describe "initialize" do
   
     it "creates an object" do
-      address = CloudAccess::Ec2::Associate::Address.new(aws_data)
+      o = CloudAccess::Ec2::Associate::Address.new(aws_data)
 
-#      address.type.should == 'ADDRESS'
-      address.elastic_ip.should == '192.0.2.1'
-      address.instance_id.should == 'i-43a4412a'
-      address.association_id.should == nil
+#      o.type.should == 'ADDRESS'
+      o.elastic_ip.should == '192.0.2.1'
+      o.instance_id.should == 'i-43a4412a'
+      o.association_id.should == nil
     end
 
   end
