@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 #
-# Thanks: http://blog.thepete.net/2010/11/creating-and-publishing-your-first-ruby.html
-# 
+# Thanks http://integrumtech.com/2010/01/how-to-build-a-ruby-gem/
+#
 
 $:.push File.expand_path("../lib", __FILE__)
 require "cloud_access/version"

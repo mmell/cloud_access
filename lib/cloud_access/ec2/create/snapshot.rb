@@ -26,7 +26,7 @@ module CloudAccess
         # returns a string corresponding to Fields
         #
         def self.ec2_create_snapshot(volume_id, description = '')
-          new( %x[ec2-create-snapshot #{volume_id} --description #{description}] )
+          new( %x[ec2-create-snapshot #{volume_id} --description '#{description}'] )
         end
 
         # parse the output of an ec2-attach-snapshot system call into a Hash
