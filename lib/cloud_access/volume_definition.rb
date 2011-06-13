@@ -3,7 +3,7 @@ require 'cloud_access/system'
 module CloudAccess
   class VolumeDefinition
     
-    Fields = [:volume_id, :fs_type, :mount_point, :attachment_device, :mount_device, :mount_original]
+    Fields = [:volume_id, :name, :fs_type, :mount_point, :attachment_device, :mount_device, :mount_original]
     
     def initialize(opts = {})
       @data = opts

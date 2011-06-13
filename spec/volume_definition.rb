@@ -5,6 +5,7 @@ describe CloudAccess::VolumeDefinition do
   def new_volume_definition
     CloudAccess::VolumeDefinition.new(
       :volume_id => 'vol-efec1484', 
+      :name => 'myname', 
       :fs_type => 'ext3', 
       :mount_point => '/opt/ebs1', 
       :attachment_device => '/dev/sdk', 
@@ -18,6 +19,7 @@ describe CloudAccess::VolumeDefinition do
       o = new_volume_definition
   
       o.volume_id.should == 'vol-efec1484'
+      o.name.should == 'myname'
       o.fs_type.should == 'ext3'
       o.mount_point.should == '/opt/ebs1'
       o.attachment_device.should == '/dev/sdk'
