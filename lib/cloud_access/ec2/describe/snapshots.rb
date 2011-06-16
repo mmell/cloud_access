@@ -10,7 +10,7 @@ module CloudAccess
       
       def initialize(aws_data, opts = {})
         super( 
-          CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
+          CloudAccess.rows_from_table(aws_data).map { |e| 
             Snapshot.new(e) 
           }.delete_if { |e| 
             !e.is_snapshot? or !e.completed?

@@ -8,7 +8,7 @@ module CloudAccess
         #
         def initialize(aws_data)
           super(
-            CloudAccess::Ec2.rows_from_table(aws_data).map { |e| 
+            CloudAccess.rows_from_table(aws_data).map { |e| 
               Instance.new(e) 
             }.delete_if { |e| 
               !e.is_instance? 
