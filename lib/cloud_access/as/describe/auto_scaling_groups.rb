@@ -13,7 +13,7 @@ module CloudAccess
         end
           
         def self.describe( shell_args = '' )
-          new( %x[ as-describe-launch-configs #{shell_args} --show-empty-fields --show-long ] )
+          new( %x[ as-describe-auto-scaling-groups #{shell_args} --show-empty-fields --show-long ] )
         end
 
       end
