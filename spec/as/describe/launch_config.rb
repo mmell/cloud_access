@@ -26,4 +26,18 @@ describe CloudAccess::As::Describe::LaunchConfig do
 
   end
 
+  describe "handles invalid data" do
+    it "is not launch_config" do
+      o = new_instance( 'BLAH,lll-launch-cfg-dev,ami-5ac23d33,m1.large,(nil),(nil),(nil),(nil),"Memcached,Public,Root Access,default",2011-05-06T22:21:03.921Z,true,arn:aws:autoscaling...' )
+  
+      o.is_launch_config?.should == false
+    end
+    
+    it "does not crash on empty response" do
+      o = new_instance( 'No launch configurations found' )
+  
+      o.is_launch_config?.should == false
+    end
+
+  end
 end

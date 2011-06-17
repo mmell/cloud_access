@@ -32,4 +32,19 @@ describe CloudAccess::As::Describe::AutoScalingGroups do
 
   end
 
+  describe "handles empty respone" do
+    it "is not launch_config" do
+      o = new_instance( 'BLAH,lll-as-group-dev,lll-launch-cfg-dev,us-east-1d,2011-05-06T22:21:54.364Z,(nil),EC2,0,0,0,300,0,(nil),(nil),arn:aws:autoscali...' )
+  
+      o.empty?.should == true
+    end
+    
+    it "does not crash on empty response" do
+      o = new_instance( 'No AutoScalingGroups found' )
+  
+      o.empty?.should == true
+    end
+
+  end
+
 end

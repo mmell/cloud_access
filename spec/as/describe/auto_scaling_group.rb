@@ -32,4 +32,19 @@ describe CloudAccess::As::Describe::AutoScalingGroup do
 
   end
 
+  describe "handles invalid data" do
+    it "is not auto_scaling_group" do
+      o = new_instance( 'BLAH,lll-as-group-dev,lll-launch-cfg-dev,us-east-1d,2011-05-06T22:21:54.364Z,(nil),EC2,0,0,0,300,0,(nil),(nil),arn:aws:autoscali...' )
+  
+      o.is_auto_scaling_group?.should == false
+    end
+
+    it "does not crash on empty response" do
+      o = new_instance( 'No AutoScalingGroups found' )
+  
+      o.is_auto_scaling_group?.should == false
+    end
+
+  end
+
 end

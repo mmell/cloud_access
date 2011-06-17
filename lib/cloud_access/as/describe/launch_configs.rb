@@ -10,6 +10,8 @@ module CloudAccess
           super(
             CloudAccess::As.parse_csv(aws_data).map { |e| 
               LaunchConfig.new(e) 
+            }.delete_if { |e| 
+              !e.is_launch_config? 
             }
           )
         end

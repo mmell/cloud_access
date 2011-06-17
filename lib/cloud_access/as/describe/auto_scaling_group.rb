@@ -17,6 +17,10 @@ module CloudAccess
           @data = self.class.parse(aws_data)
         end
         
+        def is_auto_scaling_group?
+          @data[:auto_scaling_group] == 'AUTO-SCALING-GROUP'
+        end
+        
         # parse the output of an as-describe-launch-config system call into a Hash
         # accept an array since As uses As.parse_csv(csv) to parse results
         #

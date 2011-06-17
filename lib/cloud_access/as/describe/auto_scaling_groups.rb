@@ -8,6 +8,8 @@ module CloudAccess
           super(
             CloudAccess::As.parse_csv(aws_data).map { |e| 
               AutoScalingGroup.new(e) 
+            }.delete_if { |e| 
+              !e.is_auto_scaling_group? 
             }
           )
         end

@@ -17,6 +17,10 @@ module CloudAccess
           @data = self.class.parse(aws_data)
         end
 
+        def is_launch_config?
+          @data[:launch_config] == 'LAUNCH-CONFIG'
+        end
+        
         def monitoring
           @data[:moniotring]
         end
