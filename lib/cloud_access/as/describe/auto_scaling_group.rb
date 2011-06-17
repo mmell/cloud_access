@@ -26,6 +26,7 @@ module CloudAccess
         #
         def self.parse(row_array)
           data = Hash[ Fields.zip(row_array) ]
+          return data unless data[:auto_scaling_group] == 'AUTO-SCALING-GROUP'
           data[:source] = row_array
           data[:availability_zones] = [ data[:availability_zones] ] unless data[:availability_zones].is_a?(Array)
           unless data[:load_balancers].is_a?(Array)

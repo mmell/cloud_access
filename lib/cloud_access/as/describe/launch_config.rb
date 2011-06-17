@@ -30,6 +30,7 @@ module CloudAccess
         #
         def self.parse(row_array)
           data = Hash[ Fields.zip(row_array) ]
+          return data unless data[:launch_config] == 'LAUNCH-CONFIG'
           data[:source] = row_array
           data[:created] = Time.parse(data[:created]) if data[:created]
           data[:sg] = [ data[:sg] ] unless data[:sg].is_a?(Array)
