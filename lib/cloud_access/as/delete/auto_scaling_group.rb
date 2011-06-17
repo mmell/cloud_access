@@ -1,16 +1,16 @@
 module CloudAccess
   module As
-    module Create
+    module Delete
   
       class AutoScalingGroup
         include CloudAccess::As::Base 
-        
+
         def initialize(response)
           @response = response
         end
-           
-        def self.create(shell_args)
-          new( %x[ as-create-auto-scaling-group #{shell_args} ] )
+
+        def self.delete(shell_args)
+          new( %x[ as-delete-auto-scaling-group --force #{shell_args} ] )
         end
 
       end

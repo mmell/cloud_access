@@ -9,7 +9,7 @@ module CloudAccess
           @response = response
         end
            
-        def self.as_create_launch_config(shell_args)
+        def self.create(shell_args)
           new( %x[ as-create-launch-config #{shell_args} ] )
         end
 

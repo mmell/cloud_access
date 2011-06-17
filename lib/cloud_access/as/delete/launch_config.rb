@@ -9,8 +9,8 @@ module CloudAccess
           @response = response
         end
 
-        def self.as_delete_launch_config(name)
-          new( %x[ as-delete-launch-config --force #{name} ] )
+        def self.delete(shell_args)
+          new( %x[ as-delete-launch-config --force #{shell_args} ] )
         end
 
       end

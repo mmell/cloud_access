@@ -28,7 +28,7 @@ module CloudAccess
           data = Hash[ Fields.zip(row_array) ]
           data[:source] = row_array
           data[:created] = Time.parse(data[:created]) if data[:created]
-#          data[:sg] = data[:sg].gsub('"', '').split(',') if data[:sg]
+          data[:sg] = [ data[:sg] ] unless data[:sg].is_a?(Array)
           data
         end
 

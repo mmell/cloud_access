@@ -1,15 +1,13 @@
-require 'cloud_access/as/describe/launch_config'
-
 module CloudAccess
   module As
     module Describe
   
-      class LaunchConfigs < Array
+      class AutoScalingGroups < Array
 
         def initialize(aws_data)
           super(
             CloudAccess::As.parse_csv(aws_data).map { |e| 
-              LaunchConfig.new(e) 
+              AutoScalingGroup.new(e) 
             }
           )
         end
