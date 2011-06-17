@@ -53,13 +53,13 @@ Command Name                                Description
 ------------                                -----------                                            
 as-create-auto-scaling-group                Create a new auto scaling group                        
 as-create-launch-config                     Create a new launch config                             
-as-create-or-update-trigger                 Creates a new trigger or updates an existing trigger.  
+DEPRECATED as-create-or-update-trigger                 Creates a new trigger or updates an existing trigger.  
 
 as-delete-auto-scaling-group                Delete the specified auto scaling group                
 as-delete-launch-config                     Delete the specified launch configuration              
 as-delete-policy                            Delete the specified policy                            
 as-delete-scheduled-action                  Delete the specified scheduled action                  
-as-delete-trigger                           Delete a  trigger.                                     
+DEPRECATED as-delete-trigger                           Delete a  trigger.                                     
 
 as-describe-adjustment-types                Describes all policy adjustment types.                 
 as-describe-auto-scaling-groups             Describes the specified auto scaling group(s)          
@@ -70,7 +70,7 @@ as-describe-policies                        Describes the specified policy/polic
 as-describe-process-types                   Describes all scaling process types.                   
 as-describe-scaling-activities              Describe a set of activiti...ties belonging to a group.
 as-describe-scheduled-actions               Describes the specified scheduled action(s)            
-as-describe-triggers                        Describes a trigger including its internal state.      
+DEPRECATED as-describe-triggers                        Describes a trigger including its internal state.      
 
 as-disable-metrics-collection               Disable collection of AutoScaling group metrics        
 as-enable-metrics-collection                Enable collection of AutoScaling group metrics         

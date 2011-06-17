@@ -1,6 +1,8 @@
 require 'cloud_access/dynamic_attributes.rb'
 require 'cloud_access/as.rb'
 require 'cloud_access/ec2.rb'
+require 'cloud_access/shell_args.rb'
+require 'cloud_access/system.rb'
 require 'cloud_access/version.rb'
 require 'cloud_access/volume_definition.rb'
 

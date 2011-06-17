@@ -14,7 +14,7 @@ module CloudAccess
           )
         end
           
-        def self.as_describe_launch_config( shell_args )
+        def self.as_describe_launch_config( shell_args = '' )
           new( %x[ as-describe-launch-configs #{shell_args} --show-empty-fields --show-long ] )
         end
 
