@@ -19,5 +19,17 @@ describe CloudAccess::Ec2::Create::Volume do
     end
 
   end
+  
+  describe "an incomplete create" do
+    it "can handle the creating timestamp" do
+      o = new_volume(
+        "VOLUME	vol-eff33c87	500000	snap-41296a2a	us-east-1a	creating"
+      )
+  
+      o.timestamp.should == 'creating'
+      o.is_volume?.should == true
+    end
+
+  end
 
 end

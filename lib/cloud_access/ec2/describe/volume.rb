@@ -41,7 +41,10 @@ module CloudAccess
         def self.parse(s)
           data = Hash[ Fields.zip(s.split(SEP)) ]
           data[:source] = s
-          data[:date] = Time.parse(data[:date]) if data[:date]
+          begin
+            data[:date] = Time.parse(data[:date]) if data[:date]
+          rescue
+          end
           data
         end
 

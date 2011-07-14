@@ -93,4 +93,18 @@ SNAPSHOT	snap-CURRENT	vol-41296a2a	completed	2010-10-15T06:01:23+0000	100%	30869
 
   end
 
+  describe "tags" do
+    it "returns nil" do
+      describe_snapshots = %Q{
+SNAPSHOT	snap-CURRENT	vol-41296a2a	completed	2010-10-15T06:01:23+0000	100%	308696310818	10	www-dev-10-14
+TAG	snapshot	snap-4ab3dc24	Name	pre-launch
+}
+
+      s = CloudAccess::Ec2::Describe::Snapshots.new(describe_snapshots)
+      CloudAccess::Ec2::Describe::Snapshots.stub(:ec2_describe_snapshots_by_volume_id) { s.dup }
+      s[1].should == nil
+    end
+
+  end
+
 end

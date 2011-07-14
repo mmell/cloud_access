@@ -34,7 +34,11 @@ module CloudAccess
         def self.parse(s)
           data = Hash[ Fields.zip(s.split(SEP)) ]
           data[:source] = s
-          data[:timestamp] = Time.parse(data[:timestamp])
+          begin
+            # timestamp field might == "creating"
+            data[:timestamp] = Time.parse(data[:timestamp])
+          rescue
+          end
           data
         end
 
